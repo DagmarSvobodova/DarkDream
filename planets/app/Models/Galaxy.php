@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Galaxie extends Model
+class Galaxy extends Model
 {
     use HasFactory;
+
+    protected $table = 'galaxies';
 
     public function items(){
         return $this->hasMany(Item::class);
@@ -15,5 +17,4 @@ class Galaxie extends Model
     public function univers(){
         return $this->belongsTo(Univers::class);
     }
-
 }

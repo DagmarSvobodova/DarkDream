@@ -20,8 +20,8 @@ class CreateItemsTable extends Migration
             $table->string('image');
             $table->longText('info');
             $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('subcategory_id');
-            $table->unsignedBigInteger('univers_id');
+            $table->unsignedBigInteger('subcategory_id')->nullable();;
+            $table->unsignedBigInteger('univers_id')->nullable();;
             $table->unsignedBigInteger('galaxy_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
