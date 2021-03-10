@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//items api
+Route::get('/home/all', 'ItemController@index');
+Route::get('/home/{item_id}', 'ItemController@show');
+
+//galaxies api
+Route::get('/galaxy/all', 'GalaxyController@index');
+Route::get('/galaxy/{item_id}', 'GalaxyController@show');
