@@ -26,6 +26,7 @@ mix.sass('resources/scss/eshop.scss', 'public/css');
 
 
 mix.js('resources/js/auth/index.jsx', 'public/js/auth.js').react();
+mix.js('resources/js/galaxy/index.jsx', 'public/js/galaxy.js').react();
 
 mix.browserSync({
     host: 'localhost',

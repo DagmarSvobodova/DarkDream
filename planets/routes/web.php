@@ -21,9 +21,12 @@ Route::get('/', function () {
 Route::get('/home/all', 'ItemController@index');
 Route::get('/home/{item_id}', 'ItemController@show');
 
+
 //galaxies api
 Route::get('/galaxy/all', 'GalaxyController@index');
-Route::get('/galaxy/{item_id}', 'GalaxyController@show');
+Route::get('/galaxy/{galaxy_id}', 'GalaxyController@show');
+Route::get('/galaxy/shop/{galaxy_id}', 'GalaxyController@galaxy');
+Route::get('/galaxy/shop', 'GalaxyController@galaxies');
 
 Route::view('/login', 'auth/react')->name('login');
 Route::view('/register', 'auth/react')->name('register');
@@ -38,3 +41,4 @@ Route::get('/register', function() {
     }
 
 })->name('register');
+

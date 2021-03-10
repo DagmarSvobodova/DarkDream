@@ -30,6 +30,25 @@ class GalaxyController extends Controller
                 
                 
             }
+
+            public function galaxy($galaxy_id)
+            {
+                return view('galaxy.index');
+        
+                
+                    
+                        
+                        
+                    }
+                    public function galaxies()
+                    {
+                        
+                
+                        return view('galaxy.detail');
+                            
+                                
+                                
+                            }
 }
 
 
