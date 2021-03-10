@@ -10,8 +10,8 @@ class GalaxyController extends Controller
 {
     public function index()
     {
-        $galaxies = Galaxy::get();
-               
+        $galaxies = Galaxy::with('universe')
+         ->get();
 
         return $galaxies;
             
@@ -21,7 +21,8 @@ class GalaxyController extends Controller
 
     public function show($galaxy_id)
     {
-        $galaxy = Galaxy::find($galaxy_id);
+        $galaxy = Galaxy::with('universe')
+        ->findOrFail($galaxy_id);
                
 
         return $galaxy;

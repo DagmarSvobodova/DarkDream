@@ -17,12 +17,12 @@ class Item extends Model
         return $this->belongsTo(Subcategory::class);
     }
 
-    public function galaxie(){
-        return $this->belongsTo(Galaxie::class);
+    public function galaxy(){
+        return $this->belongsTo(Galaxy::class);
     }
 
-    public function univers(){
-        return $this->belongsTo(Univers::class);
+    public function universe(){
+        return $this->belongsTo(Universe::class);
     }
 
     public function user(){

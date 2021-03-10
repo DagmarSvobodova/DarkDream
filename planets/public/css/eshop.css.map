@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./resources/scss/eshop.scss"],"names":[],"mappings":"AAAA;EACI;AACJ,C","file":"css/eshop.css","sourcesContent":["body {\n    background-color: palevioletred;\n}"],"sourceRoot":""}

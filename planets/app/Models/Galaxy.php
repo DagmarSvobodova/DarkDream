@@ -14,7 +14,7 @@ class Galaxy extends Model
     public function items(){
         return $this->hasMany(Item::class);
     }
-    public function univers(){
-        return $this->belongsTo(Univers::class);
+    public function universe(){
+        return $this->belongsTo(Universe::class);
     }
 }

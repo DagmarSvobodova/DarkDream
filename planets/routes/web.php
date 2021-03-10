@@ -24,3 +24,17 @@ Route::get('/home/{item_id}', 'ItemController@show');
 //galaxies api
 Route::get('/galaxy/all', 'GalaxyController@index');
 Route::get('/galaxy/{item_id}', 'GalaxyController@show');
+
+Route::view('/login', 'auth/react')->name('login');
+Route::view('/register', 'auth/react')->name('register');
+
+
+Route::get('/register', function() {
+
+    if (Auth::check()) {
+        return redirect('/');
+    } else {
+        return view('auth/react');
+    }
+
+})->name('register');

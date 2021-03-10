@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Univers extends Model
+class Universe extends Model
 {
     use HasFactory;
 
-    protected $table = 'universes';
+   // protected $table = 'universes';
 
     public function items(){
         return $this->hasMany(Item::class);

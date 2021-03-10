@@ -18,7 +18,7 @@ class CreateGalaxiesTable extends Migration
             $table->string('name');
             $table->string('image');
             $table->longText('info');
-            $table->unsignedBigInteger('univers_id');
+            $table->unsignedBigInteger('universe_id');
             $table->timestamps();
         });
     }
