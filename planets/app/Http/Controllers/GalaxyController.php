@@ -19,19 +19,25 @@ class GalaxyController extends Controller
                 
             }
 
-    public function show($galaxy_id)
-    {
-        $galaxy = Galaxy::with('universe')
-        ->findOrFail($galaxy_id);
-               
-
-        return $galaxy;
-            
-                
-                
+            public function show(Request $request)
+            {
+                // create the query builder
+                $query_builder = Galaxy::orderBy('name');
+        
+                if ($request->input('parent')) { // if there is 'parent' in $_GET
+                    $query_builder->where('parent_id', $request->input('parent'));
+                } else {
+                    $query_builder->whereNull('parent_id');
+                }
+        
+                // run the query, get the categories
+                $galaxy = $query_builder->get();
+        
+                return $galaxy;
             }
 
-            public function galaxy($galaxy_id)
+
+            public function galaxy()
             {
                 return view('galaxy.index');
         

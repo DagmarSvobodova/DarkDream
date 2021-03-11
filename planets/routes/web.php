@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +25,10 @@ Route::get('/home/{item_id}', 'ItemController@show');
 
 //galaxies api
 Route::get('/galaxy/all', 'GalaxyController@index');
-Route::get('/galaxy/{galaxy_id}', 'GalaxyController@show');
+
 Route::get('/galaxy/shop/{galaxy_id}', 'GalaxyController@galaxy');
 Route::get('/galaxy/shop', 'GalaxyController@galaxies');
+Route::get('/galaxy/{galaxy_id}', 'GalaxyController@show');
 
 Route::view('/login', 'auth/react')->name('login');
 Route::view('/register', 'auth/react')->name('register');
