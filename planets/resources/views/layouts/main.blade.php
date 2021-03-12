@@ -18,8 +18,10 @@
 <body>
 
     <header>
-
         
+   
+
+    @include('header.alerts')
 
     </header>
 

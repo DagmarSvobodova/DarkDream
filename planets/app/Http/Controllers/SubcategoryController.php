@@ -8,13 +8,22 @@ use App\Models\Subcategory;
 
 class SubcategoryController extends Controller
 {
-    public function index()
+    
+    public function subcategory()
     {
-        $subcategory = Subcategory::get();
-
-        return $subcategory;
-            
-                
-                
+        return view('subcategory.detail');
+ 
             }
+public function subcategories()
+            {
+                
+        
+        return view('subcategory.index');
+                    
+                               
+                    }
 }
+
+
+
+

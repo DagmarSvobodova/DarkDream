@@ -26,7 +26,11 @@ mix.sass('resources/scss/eshop.scss', 'public/css');
 
 
 mix.js('resources/js/auth/index.jsx', 'public/js/auth.js').react();
+mix.js('resources/js/item/index.jsx', 'public/js/item.js').react();
 mix.js('resources/js/galaxy/index.jsx', 'public/js/galaxy.js').react();
+mix.js('resources/js/universe/index.jsx', 'public/js/universe.js').react();
+mix.js('resources/js/category/index.jsx', 'public/js/category.js').react();
+mix.js('resources/js/subcategory/index.jsx', 'public/js/subcategory.js').react();
 
 mix.browserSync({
     host: 'localhost',

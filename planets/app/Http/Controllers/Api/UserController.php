@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -48,4 +49,20 @@ class UserController extends Controller
 
         $user->tokens()->delete();
     }
-}
+
+    public function users_api()
+    {
+        $users = User::get();
+
+      $info_users = $users->map(function($user) {
+        return [
+            'id' => $user->id,
+            'name' => $user->name,
+            'email' => $user->email,
+            'admin' => $user->admin ];
+      });
+
+      return $info_users;
+    }
+            }
+        

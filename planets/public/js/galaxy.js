@@ -53,21 +53,21 @@ function GalaxiesBrowser(props) {
     loading: false,
     loaded: false,
     data: null,
-    parent: null
+    galaxy: null
   }),
       _useState2 = _slicedToArray(_useState, 2),
       _useState2$ = _useState2[0],
       loading = _useState2$.loading,
       loaded = _useState2$.loaded,
       data = _useState2$.data,
-      parent = _useState2$.parent,
+      galaxy = _useState2$.galaxy,
       setDataState = _useState2[1];
 
-  var url = '/api/galaxy/all'; // change this if necessary
+  var url = '/api/galaxies'; // change this if necessary
 
   var loadData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var parent,
+      var galaxy,
           response,
           _data,
           _args = arguments;
@@ -76,7 +76,7 @@ function GalaxiesBrowser(props) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              parent = _args.length > 0 && _args[0] !== undefined ? _args[0] : null;
+              galaxy = _args.length > 0 && _args[0] !== undefined ? _args[0] : null;
 
               if (!url) {
                 _context.next = 11;
@@ -90,7 +90,7 @@ function GalaxiesBrowser(props) {
                 parent: parent
               });
               _context.next = 5;
-              return fetch(url + '?parent=' + (parent ? parent.id : ''));
+              return fetch(url);
 
             case 5:
               response = _context.sent;
@@ -104,7 +104,7 @@ function GalaxiesBrowser(props) {
                 loaded: true,
                 data: _data
               });
-              props.setCategory(parent);
+              props.setGalaxy(_data);
 
             case 11:
             case "end":
@@ -123,8 +123,8 @@ function GalaxiesBrowser(props) {
     loadData();
   }, []);
 
-  var chooseCategory = function chooseCategory(parent) {
-    loadData(parent);
+  var chooseGalaxy = function chooseGalaxy(galaxy) {
+    loadData(galaxy.name);
   };
 
   console.log(data);
@@ -141,14 +141,26 @@ function GalaxiesBrowser(props) {
   } else if (loaded) {
     content = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "categories-browser__categories",
-      children: data.map(function (category) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      children: data.map(function (galaxy) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "categories-browser__category",
           onClick: function onClick() {
-            return chooseCategory(category);
+            return chooseGalaxy(galaxy.name);
           },
-          children: category.name
-        }, category.id);
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+            children: galaxy.name
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            src: galaxy.image,
+            alt: galaxy.name
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+            children: galaxy.info
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+            children: galaxy.universe.name
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            src: galaxy.universe.image,
+            alt: galaxy.name
+          })]
+        }, galaxy.id);
       })
     });
   }
@@ -156,7 +168,7 @@ function GalaxiesBrowser(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("section", {
     className: "categories-browser",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h2", {
-      children: "Categories"
+      children: "Galaxy"
     }), content]
   });
 }
@@ -32287,20 +32299,20 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function App() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null),
       _useState2 = _slicedToArray(_useState, 2),
-      category = _useState2[0],
-      setCategory = _useState2[1];
+      galaxy = _useState2[0],
+      setGalaxy = _useState2[1];
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "galaxies",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_GalaxiesBrowser_jsx__WEBPACK_IMPORTED_MODULE_2__.default, {
-        setCategory: setCategory
+        setGalaxy: setGalaxy
       })
     })
   });
 }
 
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(App, {}), document.querySelector('app'));
+react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(App, {}), document.querySelector('#app'));
 })();
 
 /******/ })()

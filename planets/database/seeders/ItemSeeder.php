@@ -26,7 +26,7 @@ class ItemSeeder extends Seeder
             $item->category_id = $item_data->category_id;
             $item->subcategory_id = $item_data->subcategory_id;
             $item->galaxy_id = $item_data->galaxy_id;
-            $item->univers_id = $item_data->univers_id;
+            $item->universe_id = $item_data->univers_id;
             $item->user_id = $item_data->user_id;
             $item->save();
     }

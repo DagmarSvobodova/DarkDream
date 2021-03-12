@@ -18,18 +18,36 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//items api
-Route::get('/home/all', 'ItemController@index');
-Route::get('/home/{item_id}', 'ItemController@show');
+//items view
+Route::get('/items', 'ItemController@items');
+Route::get('/item', 'ItemController@item');
 
 
-//galaxies api
-Route::get('/galaxy/all', 'GalaxyController@index');
+//galaxies view
+Route::get('/galaxy', 'GalaxyController@galaxy');
+Route::get('/galaxies', 'GalaxyController@galaxies');
 
-Route::get('/galaxy/shop/{galaxy_id}', 'GalaxyController@galaxy');
-Route::get('/galaxy/shop', 'GalaxyController@galaxies');
-Route::get('/galaxy/{galaxy_id}', 'GalaxyController@show');
 
+//universes view
+Route::get('/universes', 'UniverseController@universes');
+Route::get('/universe', 'UniverseController@universe');
+
+
+//subcategories view
+Route::get('/subcategories', 'SubcategoryController@subcategories');
+Route::get('/subcategory', 'SubcategoryController@subcategory');
+
+
+//categories view
+Route::get('/categories', 'CategoryController@categories');
+Route::get('/category', 'CategoryController@category');
+
+
+//users view
+Route::get('/users', 'UserController@users');
+
+
+//login
 Route::view('/login', 'auth/react')->name('login');
 Route::view('/register', 'auth/react')->name('register');
 

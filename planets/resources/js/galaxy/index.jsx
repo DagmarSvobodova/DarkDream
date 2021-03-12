@@ -5,13 +5,13 @@ import GalaxiesBrowser from './GalaxiesBrowser.jsx';
 
 function App() {
 
-    const [category, setCategory] = useState(null);
+    const [galaxy, setGalaxy] = useState(null);
 
     return (
         <>
             <div className="galaxies">
 
-                <GalaxiesBrowser setCategory={ setCategory } />
+                <GalaxiesBrowser setGalaxy={ setGalaxy } />
 
                 
 
@@ -20,4 +20,4 @@ function App() {
     );
 }
 
-ReactDOM.render(<App />, document.querySelector('app'));
+ReactDOM.render(<App />, document.querySelector('#app'));

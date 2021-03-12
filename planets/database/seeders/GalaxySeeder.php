@@ -23,7 +23,7 @@ class GalaxySeeder extends Seeder
             $galaxy->name = $galaxy_data->name;
             $galaxy->image = $galaxy_data->image;
             $galaxy->info = $galaxy_data->info;
-            $galaxy->univers_id = $galaxy_data->univers_id;
+            $galaxy->universe_id = $galaxy_data->univers_id;
            
             $galaxy->save();
         

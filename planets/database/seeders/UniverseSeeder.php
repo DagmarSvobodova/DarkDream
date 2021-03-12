@@ -19,12 +19,12 @@ class UniverseSeeder extends Seeder
 
         foreach ($data as $univers_data) {
 
-            $univers = new Universe;
-            $univers->name = $univers_data->name;
-            $univers->image = $univers_data->image;
-            $univers->info = $univers_data->info;
+            $universe = new Universe;
+            $universe->name = $univers_data->name;
+            $universe->image = $univers_data->image;
+            $universe->info = $univers_data->info;
            
-            $univers->save();
+            $universe->save();
         
         
     }

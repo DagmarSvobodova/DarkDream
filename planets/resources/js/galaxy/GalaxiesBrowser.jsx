@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 
 export default function GalaxiesBrowser(props) {
 
-    const [{loading, loaded, data, parent}, setDataState] = useState({
+    const [{loading, loaded, data, galaxy}, setDataState] = useState({
         loading: false,
         loaded: false,
         data: null,
-        parent: null
+        galaxy: null
     })
 
-    const url = '/api/galaxy/all'; // change this if necessary
+    const url = '/api/galaxies'; // change this if necessary
 
-    const loadData = async (parent = null) => {
+    const loadData = async (galaxy = null) => {
         if (url) {
             setDataState({
                 loading: true,
@@ -20,7 +20,7 @@ export default function GalaxiesBrowser(props) {
                 parent: parent
             });
 
-            const response = await fetch(url + '?parent=' + (parent ? parent.id : ''));
+            const response = await fetch(url);
             const data = await response.json();
 
             setDataState({
@@ -29,7 +29,7 @@ export default function GalaxiesBrowser(props) {
                 data: data
             });
 
-            props.setCategory(parent);
+            props.setGalaxy(data);
         }
     }
 
@@ -37,8 +37,8 @@ export default function GalaxiesBrowser(props) {
         loadData();
     }, [])
 
-    const chooseCategory = (parent) => {
-        loadData(parent)
+    const chooseGalaxy = (galaxy) => {
+        loadData(galaxy.name)
     }
 
     console.log(data);
@@ -56,9 +56,13 @@ export default function GalaxiesBrowser(props) {
         content = (
             <div className="categories-browser__categories">
                 {
-                    data.map(category => (
-                        <div key={ category.id } className="categories-browser__category" onClick={ () => chooseCategory(category) }>
-                            { category.name }
+                    data.map(galaxy => (
+                        <div key={ galaxy.id } className="categories-browser__category" onClick={ () => chooseGalaxy(galaxy.name) }>
+                            <h3>{ galaxy.name }</h3>
+                            <img src={galaxy.image} alt={galaxy.name}/>
+                            <p>{galaxy.info}</p>
+                            <p>{galaxy.universe.name}</p>
+                            <img src={galaxy.universe.image} alt={galaxy.name}/>
                         </div>
                     ))
                 }
@@ -69,7 +73,7 @@ export default function GalaxiesBrowser(props) {
     return (
         <section className="categories-browser">
 
-            <h2>Categories</h2>
+            <h2>Galaxy</h2>
 
             { content }
 
