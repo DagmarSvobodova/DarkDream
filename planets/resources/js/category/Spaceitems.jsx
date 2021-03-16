@@ -7,14 +7,14 @@ import Header from '../welcomepage/header/Header';
 
 
 
-function App() {
+function Spaceitems() {
 
     const [items, setItems] = useState([]);
-    const [url, setUrl] = useState('');
+   
 
     async function fetchItems() {
       const response = await fetch(
-        `/api/item/categoryid/1`
+        `/api/item/categoryid/2`
       );
       const data = await response.json();
       console.log(data);
@@ -32,17 +32,15 @@ function App() {
        
 
         <div className="my">
-          <Header></Header>
-          <div className="galaxies">
+         
+         <Header></Header>
+          <div className="items">
                {items.map((item, index) => (
-            
+           
             <div className="item">
              <h2>{item.name}</h2>
-        
-              
-              <p>type: {item.type}</p>
-              
-              
+             <p>{item.subcategory.name} </p>
+             <p>type: {item.type}</p>
               
               <img src={item.image} alt={item.name}/>
               { item.user_id ? 
@@ -51,6 +49,7 @@ function App() {
               }
            
               </div>
+              
               
              
             
@@ -63,4 +62,4 @@ function App() {
 }
 
 
-ReactDOM.render(<App />, document.querySelector('#app'));
+ReactDOM.render(<Spaceitems />, document.querySelector('#app'));

@@ -23,6 +23,7 @@ class ItemSeeder extends Seeder
             $item->type = $item_data->type;
             $item->image = $item_data->image;
             $item->info = $item_data->info;
+            $item->price = $item_data->price;
             $item->category_id = $item_data->category_id;
             $item->subcategory_id = $item_data->subcategory_id;
             $item->galaxy_id = $item_data->galaxy_id;

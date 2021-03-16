@@ -25,9 +25,12 @@ class ItemController extends Controller
             }
     public function items_api()
             {
-                $items = Item::with('category')
+                $items = Item::orderBy('subcategory_id', 'DESC')
+                ->with('category')
+                ->with('universe')
+                ->with('galaxy')
                 ->with('subcategory')
-               
+                ->with('user')
                  ->get();
         
              return $items;
@@ -36,9 +39,9 @@ class ItemController extends Controller
                         
                     }
 
-    public function item_by_name($item_name)
+    public function items_by_name($item_name)
             {
-                // create the query builder
+              
                 $item = Item::orderBy('name')
                 ->where('name', $item_name)
                 ->with('universe')
@@ -61,11 +64,75 @@ class ItemController extends Controller
                 ->find($item_id);
                
                 
-                // create the query builder
                 
                 return $item;
             }
            
+            public function items_by_user_id($user)
+            {
+
+                $items = Item::orderBy('name')
+                ->where('user_id', $user)
+                ->with('universe')
+                ->with('galaxy')
+                ->with('subcategory')
+                ->with('category')
+                ->with('user')
+                ->get();
+               
           
+                
+                return $items;
+            }
+
+            public function items_by_galaxy_id($galaxy)
+            {
+
+                $items = Item::orderBy('name')
+                ->where('galaxy_id', $galaxy)
+                ->with('universe')
+                ->with('galaxy')
+                ->with('subcategory')
+                ->with('category')
+                ->with('user')
+                ->get();
+               
+          
+                
+                return $items;
+            }
+
+            public function items_by_category_id($category)
+            {
+
+                $items = Item::orderBy('name')
+                ->where('category_id', $category)
+                ->with('universe')
+                ->with('galaxy')
+                ->with('subcategory')
+                ->with('category')
+                ->with('user')
+                ->get();
+               
+          
+                
+                return $items;
+            }
+            public function items_by_universe_id($universe)
+            {
+
+                $items = Item::orderBy('name')
+                ->where('universe_id', $universe)
+                ->with('universe')
+                ->with('galaxy')
+                ->with('subcategory')
+                ->with('category')
+                ->with('user')
+                ->get();
+               
+          
+                
+                return $items;
+            }
                     
 }

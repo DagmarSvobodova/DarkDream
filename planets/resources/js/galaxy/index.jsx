@@ -1,23 +1,47 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import GalaxiesBrowser from './GalaxiesBrowser.jsx';
+import Header from '../welcomepage/header/Header.jsx';
+import GalaxiesList from './GalaxiesList';
+import GalaxyItems from './GalaxyItems';
+import ItemDetail from '../item/ItemDetail';
+import {
 
 
-function App() {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
-    const [galaxy, setGalaxy] = useState(null);
 
-    return (
-        <>
-            <div className="galaxies">
 
-                <GalaxiesBrowser setGalaxy={ setGalaxy } />
 
-                
 
-            </div>
-        </>
-    );
-}
+       
+    
+  ReactDOM.render ((
+    <Router>
+        
+    <Header></Header>
+    <Switch>
+     <Route
+          path="/galaxies" children={ <GalaxiesList /> }
+         
+        />
+        <Route
+          path="/galaxy/id/:id" 
+        children={ <GalaxyItems /> }
+        />
+         <Route
+          path="/item/id/:id" 
+        children={ <ItemDetail /> }
+        />
+      </Switch>
+    </Router>
+           
+        
+            
+        ), document.querySelector('#app'));
+    
 
-ReactDOM.render(<App />, document.querySelector('#app'));
+  
+

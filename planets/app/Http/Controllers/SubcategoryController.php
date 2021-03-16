@@ -14,7 +14,7 @@ class SubcategoryController extends Controller
         return view('subcategory.detail');
  
             }
-public function subcategories()
+public function subcategories($id)
             {
                 
         

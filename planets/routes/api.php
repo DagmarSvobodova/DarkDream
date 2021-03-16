@@ -32,9 +32,12 @@ Route::post('/logout', 'Api\UserController@logout')->middleware('auth:sanctum');
 //items
 Route::get('/items/with/all', 'Api\ItemController@items_api_with_all');
 Route::get('/items', 'Api\ItemController@items_api');
-Route::get('/item/name/{item_name}', 'Api\ItemController@item_by_name');
+Route::get('/item/name/{item_name}', 'Api\ItemController@items_by_name');
 Route::get('/item/id/{item_id}', 'Api\ItemController@item_by_id');
-
+Route::get('/item/userid/{user}', 'Api\ItemController@items_by_user_id');
+Route::get('/item/galaxyid/{galaxy}', 'Api\ItemController@items_by_galaxy_id');
+Route::get('/item/categoryid/{category}', 'Api\ItemController@items_by_category_id');
+Route::get('/item/universeid/{universe}', 'Api\ItemController@items_by_universe_id');
 //galxies
 Route::get('/galaxies', 'Api\GalaxyController@galaxies_api');
 Route::get('/galaxy/name/{galaxy_name}', 'Api\GalaxyController@galaxy_by_name');

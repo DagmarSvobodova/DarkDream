@@ -11,7 +11,8 @@ class GalaxyController extends Controller
 {
     public function galaxies_api()
     {
-        $galaxies = Galaxy::with('universe')
+        $galaxies = Galaxy::orderBy('name')
+        ->with('universe')
          ->get();
 
         return $galaxies;

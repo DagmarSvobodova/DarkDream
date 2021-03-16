@@ -4,6 +4,6 @@
 
     <div id="app"></div>
 
-    <script src="{{ mix('js/category.js') }}"></script>
+    <script src="{{ mix('js/spaceitems.js') }}"></script>
 
 @endsection

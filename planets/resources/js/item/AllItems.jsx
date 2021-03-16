@@ -1,20 +1,16 @@
-
-
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import Header from '../welcomepage/header/Header';
 
 
 
 
-function App() {
+function AllItems() {
 
     const [items, setItems] = useState([]);
     const [url, setUrl] = useState('');
 
     async function fetchItems() {
       const response = await fetch(
-        `/api/item/categoryid/1`
+        `/api/items`
       );
       const data = await response.json();
       console.log(data);
@@ -31,36 +27,34 @@ function App() {
        
        
 
-        <div className="my">
-          <Header></Header>
-          <div className="galaxies">
+        <div className="items">
                {items.map((item, index) => (
-            
-            <div className="item">
+            <div className="item" key={index}  onClick={ () => {setUrl((`/api/category/id/${item.id}`))}} >
+             <a href={url}> 
              <h2>{item.name}</h2>
-        
-              
-              <p>type: {item.type}</p>
-              
+             </a>
+              { item.subcategory_id ? 
+              <p>{item.subcategory.name}</p> :
+              <p>starship</p>
+              }
+                
               
               
               <img src={item.image} alt={item.name}/>
+           
               { item.user_id ? 
               <h3>Already sold to {item.user.name}</h3> : 
                 <h3>{item.price}</h3>
               }
-           
-              </div>
               
              
-            
+            </div>
           ))}
                 
-           </div>
+           
         </div>
         
     );
 }
 
-
-ReactDOM.render(<App />, document.querySelector('#app'));
+export default AllItems;

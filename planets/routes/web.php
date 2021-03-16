@@ -20,32 +20,35 @@ Route::get('/', function () {
 
 //items view
 Route::get('/items', 'ItemController@items');
-Route::get('/item', 'ItemController@item');
+Route::get('/item/{pi?}', 'ItemController@item')->where("pi", ".*");
 
 
 //galaxies view
-Route::get('/galaxy', 'GalaxyController@galaxy');
+Route::get('/galaxy/{pi?}', 'GalaxyController@galaxy')->where("pi", ".*");
 Route::get('/galaxies', 'GalaxyController@galaxies');
 
 
 //universes view
 Route::get('/universes', 'UniverseController@universes');
-Route::get('/universe', 'UniverseController@universe');
+Route::get('/universe/{pi?}', 'UniverseController@universe')->where("pi", ".*");
 
 
 //subcategories view
 Route::get('/subcategories', 'SubcategoryController@subcategories');
-Route::get('/subcategory', 'SubcategoryController@subcategory');
+Route::get('/subcategory/{id}', 'SubcategoryController@subcategory');
 
 
 //categories view
-Route::get('/categories', 'CategoryController@categories');
-Route::get('/category', 'CategoryController@category');
+Route::get('/category/id/1', 'CategoryController@categories');
+Route::get('/category/id/2', 'CategoryController@category');
 
 
 //users view
 Route::get('/users', 'UserController@users');
+Route::get('/about', 'UserController@about');
 
+//main page view
+Route::get('/shop', 'MainPageController@mainPage');
 
 //login
 Route::view('/login', 'auth/react')->name('login');
