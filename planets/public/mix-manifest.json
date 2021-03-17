@@ -1,12 +1,5 @@
 {
-    "/js/auth.js": "/js/auth.js?id=57e46b6cba2affa390d1",
-    "/js/item.js": "/js/item.js?id=30b485828ae957fa1f7c",
-    "/js/main.js": "/js/main.js?id=4a0d85d7124817c7e9af",
-    "/js/galaxy.js": "/js/galaxy.js?id=6f69ccf6cdffd268930b",
-    "/js/universe.js": "/js/universe.js?id=13339bd247ea3ce71f55",
-    "/js/category.js": "/js/category.js?id=e7139586270d24bbc078",
-    "/js/spaceships.js": "/js/spaceships.js?id=b031ce1e98ddb5d39de6",
-    "/js/spaceitems.js": "/js/spaceitems.js?id=237bd049bda4b5103d40",
-    "/js/subcategory.js": "/js/subcategory.js?id=9548c3ca73bc88c01b27",
+    "/js/auth.js": "/js/auth.js?id=df953f0d1f3a0957f864",
+    "/js/shop.js": "/js/shop.js?id=c37654f79c044819afab",
     "/css/eshop.css": "/css/eshop.css?id=c6a8cc4a23c65a9fc412"
 }

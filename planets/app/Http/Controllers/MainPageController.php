@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 
 class MainPageController extends Controller
 {
-    public function mainPage()
+    public function eshop()
     {
         
 
-return view('mainPage');
+return view('eshop.reactrender');
             
                        
             }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from "react-router-dom";
 
-function GalaxyItems(props) {
+function GalaxyItems() {
     let { id } = useParams();
     const [items, setItems] = useState([]);
     
@@ -29,7 +29,7 @@ function GalaxyItems(props) {
     <img src={items[0].galaxy.image} alt={items[0].galaxy.name}/>
     <h3>{items[0].galaxy.name}</h3>
     <p>{items[0].galaxy.info}</p>
-    <a className="linktoparent" href={`/universe/id/${items[0].universe.id}`}>in {items[0].universe.name} universe</a>
+    <Link to={`/universe/id/${items[0].universe.id}`} className="linktoparent">in {items[0].universe.name}  universe</Link>
     </div>
         <div className="galaxies">
       

@@ -23,6 +23,7 @@ function Body(props) {
     }, [])
 
     return (
+      <div className="my">
         <div className="body">
                {categories.map((category, index) => (
             <div className={category.classname} key={index}   onClick={ () => {setUrl((`/category/id/${category.id}`))}} >
@@ -35,6 +36,7 @@ function Body(props) {
           ))}
                 
            
+        </div>
         </div>
     );
 }

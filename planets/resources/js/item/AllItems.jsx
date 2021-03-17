@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
-
+import { Link } from "react-router-dom";
 
 
 
 function AllItems() {
 
     const [items, setItems] = useState([]);
-    const [url, setUrl] = useState('');
+    
 
     async function fetchItems() {
       const response = await fetch(
         `/api/items`
       );
       const data = await response.json();
-      console.log(data);
+    //  console.log(data);
     
       setItems(data);
     
@@ -25,14 +25,14 @@ function AllItems() {
 
     return (
        
-       
+      items ? 
 
         <div className="items">
                {items.map((item, index) => (
-            <div className="item" key={index}  onClick={ () => {setUrl((`/api/category/id/${item.id}`))}} >
-             <a href={url}> 
+          <Link to={`/item/id/${item.id}`} className="item" key={index}>
+           
              <h2>{item.name}</h2>
-             </a>
+             
               { item.subcategory_id ? 
               <p>{item.subcategory.name}</p> :
               <p>starship</p>
@@ -48,11 +48,13 @@ function AllItems() {
               }
               
              
-            </div>
+        
+            </Link>
           ))}
                 
            
-        </div>
+        </div> :
+        <div></div>
         
     );
 }

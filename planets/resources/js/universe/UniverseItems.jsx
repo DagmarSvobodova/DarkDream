@@ -34,7 +34,7 @@ function UniverseItems(props) {
        
         <div className="galaxies">
              {items.map((item, index) => (
-          
+           <Link to={`/item/id/${item.id}`} className="item" key={index}>
           <div className="item">
            <h2>{item.name}</h2>
            <p>{item.subcategory.name} </p>
@@ -47,7 +47,7 @@ function UniverseItems(props) {
             }
          
             </div>
-            
+            </Link>
            
           
         ))}
